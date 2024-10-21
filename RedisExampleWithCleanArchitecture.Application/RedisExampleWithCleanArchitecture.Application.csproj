@@ -18,8 +18,4 @@
     <ProjectReference Include="..\RedisExampleWithCleanArchitecture.Domain\RedisExampleWithCleanArchitecture.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\ProductFeatures\Update\" />
-  </ItemGroup>
-
 </Project>

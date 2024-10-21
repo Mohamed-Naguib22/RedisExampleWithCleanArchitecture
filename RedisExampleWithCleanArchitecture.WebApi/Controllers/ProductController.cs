@@ -4,6 +4,7 @@ using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.Cre
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.Delete;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetAll;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetById;
+using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.Update;
 
 namespace RedisExampleWithCleanArchitecture.WebApi.Controllers
 {
@@ -30,9 +31,17 @@ namespace RedisExampleWithCleanArchitecture.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateProductRequest createProductCommand)
+        public async Task<IActionResult> Create([FromBody] CreateProductRequest createProductRequest)
         {
-            await _mediator.Send(createProductCommand);
+            await _mediator.Send(createProductRequest);
+
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(Guid id, [FromBody] UpdateProductDto updateProductDto)
+        {
+            await _mediator.Send(new UpdateProductRequest(id, updateProductDto));
 
             return Ok();
         }
