@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\ProductFeatures\GetById\" />
     <Folder Include="Features\ProductFeatures\Delete\" />
     <Folder Include="Features\ProductFeatures\Update\" />
   </ItemGroup>

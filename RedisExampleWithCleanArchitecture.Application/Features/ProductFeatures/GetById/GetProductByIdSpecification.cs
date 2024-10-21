@@ -6,13 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetAll
+namespace RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetById
 {
-    public sealed class GetAllProductsSpecification : BaseSpecification<Product>
+    public sealed class GetProductByIdSpecification : BaseSpecification<Product>
     {
-        public GetAllProductsSpecification() : base(p => !p.IsDeleted)
+        public GetProductByIdSpecification(Guid id) : base(p => id == p.Id && !p.IsDeleted)
         {
-            AddOrderBy(e => e.Price);
         }
     }
 }

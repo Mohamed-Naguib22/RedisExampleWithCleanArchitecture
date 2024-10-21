@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.Create;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetAll;
+using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetById;
 
 namespace RedisExampleWithCleanArchitecture.WebApi.Controllers
 {
@@ -19,6 +20,12 @@ namespace RedisExampleWithCleanArchitecture.WebApi.Controllers
         public async Task<IActionResult> GetAll()
         {
             return Ok(await _mediator.Send(new GetAllProductsRequest()));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            return Ok(await _mediator.Send(new GetProductByIdRequest(id)));
         }
 
         [HttpPost]
