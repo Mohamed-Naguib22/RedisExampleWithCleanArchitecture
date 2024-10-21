@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RedisExampleWithCleanArchitecture.Domain.ProductEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,5 +19,7 @@ namespace RedisExampleWithCleanArchitecture.Persistence.Context
         {
 
         }
+
+        public DbSet<Product> Products { get; set; }
     } 
 }

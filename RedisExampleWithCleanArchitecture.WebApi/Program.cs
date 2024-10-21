@@ -1,25 +1,41 @@
+using RedisExampleWithCleanArchitecture.WebApi.Extensions;
+using RedisExampleWithCleanArchitecture.WebApi.Middlewares;
+using RedisExampleWithCleanArchitecture.Application.Extensions;
+using RedisExampleWithCleanArchitecture.Persistence.Extensions;
+using RedisExampleWithCleanArchitecture.Infrastructure.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddHttpClient();
+
+builder.Services.ConfigureInfrastructure(builder.Host, builder.Configuration);
+builder.Services.ConfigurePersistence(builder.Configuration);
+builder.Services.ConfigureApplication();
+builder.Services.ConfigureSwagger(builder.Configuration);
+builder.Services.ConfigureApiBehavior();
+builder.Services.ConfigureCorsPolicy();
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerDevelopment(builder.Configuration, "SwaggerConfigTest");
+}
+else if (app.Environment.IsProduction())
+{
+    app.UseSwaggerProduction(builder.Configuration, "SwaggerConfigTest");
 }
 
 app.UseHttpsRedirection();
-
+app.UseStaticFiles();
+app.UseErrorHandler();
+app.UseCors();
+app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.Run();
