@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.Create;
+using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.Delete;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetAll;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetById;
 
@@ -32,6 +33,14 @@ namespace RedisExampleWithCleanArchitecture.WebApi.Controllers
         public async Task<IActionResult> Create([FromBody] CreateProductRequest createProductCommand)
         {
             await _mediator.Send(createProductCommand);
+
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await _mediator.Send(new DeleteProductRequest(id));
 
             return Ok();
         }

@@ -2,6 +2,7 @@
 using MediatR;
 using RedisExampleWithCleanArchitecture.Application.Exceptions;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetAll;
+using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetById;
 using RedisExampleWithCleanArchitecture.Application.IContract.IRepositories.ICommon;
 using RedisExampleWithCleanArchitecture.Domain.ProductEntities;
 using System;
@@ -10,21 +11,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetById
+namespace RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.Delete
 {
-    public sealed class GetProductByIdHandler(IMapper mapper, IUnitOfWork unitOfWork) : IRequestHandler<GetProductByIdRequest, GetProductDto>
+    public sealed class DeleteProductHandler(IUnitOfWork unitOfWork) : IRequestHandler<DeleteProductRequest, Unit>
     {
-        private readonly IMapper _mapper = mapper;
         private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
-        public async Task<GetProductDto> Handle(GetProductByIdRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteProductRequest request, CancellationToken cancellationToken)
         {
             var specifications = new GetProductByIdSpecification(request.Id);
 
-            var product = await _unitOfWork.GetRepository<Product>().FirstOrDefaultAsync(specifications)
+            var product = await _unitOfWork.GetRepository<Product>().FirstOrDefaultAsync(specifications) 
                 ?? throw new EntityNotFoundException();
 
-            return _mapper.Map<GetProductDto>(product);
+            product.SoftDelete();
+
+            await _unitOfWork.SaveChangesAsync();
+
+            return Unit.Value;
         }
     }
 }

@@ -15,5 +15,11 @@ namespace RedisExampleWithCleanArchitecture.Domain.Entities.Common
         public DateTimeOffset? DateUpdated { get; set; }
         public DateTimeOffset? DateDeleted { get; set; }
         public bool IsDeleted { get; set; }
+
+        public void SoftDelete()
+        {
+            IsDeleted = true;
+            DateDeleted = DateTimeOffset.UtcNow;
+        }
     }
 }

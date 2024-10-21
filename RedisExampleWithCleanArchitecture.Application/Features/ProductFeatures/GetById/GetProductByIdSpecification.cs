@@ -8,10 +8,7 @@ using System.Threading.Tasks;
 
 namespace RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetById
 {
-    public sealed class GetProductByIdSpecification : BaseSpecification<Product>
+    public sealed class GetProductByIdSpecification(Guid id) : BaseSpecification<Product>(p => id == p.Id && !p.IsDeleted)
     {
-        public GetProductByIdSpecification(Guid id) : base(p => id == p.Id && !p.IsDeleted)
-        {
-        }
     }
 }

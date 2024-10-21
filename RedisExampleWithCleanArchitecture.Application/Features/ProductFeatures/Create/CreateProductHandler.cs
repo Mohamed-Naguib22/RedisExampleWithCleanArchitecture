@@ -10,15 +10,10 @@ using System.Threading.Tasks;
 
 namespace RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.Create
 {
-    public sealed class CreateProductHandler : IRequestHandler<CreateProductRequest, Unit>
+    public sealed class CreateProductHandler(IMapper mapper, IUnitOfWork unitOfWork) : IRequestHandler<CreateProductRequest, Unit>
     {
-        private readonly IMapper _mapper;
-        private readonly IUnitOfWork _unitOfWork;
-        public CreateProductHandler(IMapper mapper, IUnitOfWork unitOfWork)
-        {
-            _mapper = mapper;
-            _unitOfWork = unitOfWork;
-        }
+        private readonly IMapper _mapper = mapper;
+        private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
         public async Task<Unit> Handle(CreateProductRequest request, CancellationToken cancellationToken)
         {

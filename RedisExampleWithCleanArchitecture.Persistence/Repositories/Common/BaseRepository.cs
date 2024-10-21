@@ -69,14 +69,13 @@ namespace RedisExampleWithCleanArchitecture.Persistence.Repositories.Common
 
         public void Delete(T entity)
         {
-            entity.DateDeleted = DateTimeOffset.UtcNow;
             _context.Entry(entity).State = EntityState.Deleted;
             Entities.Remove(entity);
         }
 
         public async Task<T> FirstOrDefaultAsync(IBaseSpecification<T> specification)
         {
-            var query = Entities.AsQueryable().AsNoTracking();
+            var query = Entities.AsQueryable();
             query = SpecificationElevator<T>.Elevate(query, specification);
 
             return await query.FirstOrDefaultAsync();
