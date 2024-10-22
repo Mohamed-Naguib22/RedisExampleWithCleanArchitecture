@@ -3,6 +3,7 @@ using RedisExampleWithCleanArchitecture.WebApi.Middlewares;
 using RedisExampleWithCleanArchitecture.Application.Extensions;
 using RedisExampleWithCleanArchitecture.Persistence.Extensions;
 using RedisExampleWithCleanArchitecture.Infrastructure.Extensions;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -38,4 +39,18 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
-app.Run();
+app.UseSeriLog();
+
+try
+{
+    Log.Information("Starting up the web host");
+    app.Run();
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Host terminated unexpectedly");
+}
+finally
+{
+    Log.CloseAndFlush();
+}

@@ -14,8 +14,13 @@ namespace RedisExampleWithCleanArchitecture.Infrastructure.Extensions
     {
         public static void ConfigureInfrastructure(this IServiceCollection services, IHostBuilder host, IConfiguration configuration)
         {
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(configuration)
+                .Enrich.FromLogContext()
+                .WriteTo.Console()
+                .CreateLogger();
+
             host.UseSerilog();
-            Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(configuration).CreateLogger();
         }
     }
 }
