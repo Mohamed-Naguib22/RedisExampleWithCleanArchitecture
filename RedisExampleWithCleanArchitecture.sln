@@ -3,15 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisExampleWithCleanArchitecture.WebApi", "RedisExampleWithCleanArchitecture.WebApi\RedisExampleWithCleanArchitecture.WebApi.csproj", "{ED7E35C7-2BA6-4CCF-94C8-5EA4BE183345}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisExampleWithCleanArchitecture.WebApi", "RedisExampleWithCleanArchitecture.WebApi\RedisExampleWithCleanArchitecture.WebApi.csproj", "{ED7E35C7-2BA6-4CCF-94C8-5EA4BE183345}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisExampleWithCleanArchitecture.Domain", "RedisExampleWithCleanArchitecture.Domain\RedisExampleWithCleanArchitecture.Domain.csproj", "{DC86A2FD-6353-4DFF-A332-51546664A366}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisExampleWithCleanArchitecture.Domain", "RedisExampleWithCleanArchitecture.Domain\RedisExampleWithCleanArchitecture.Domain.csproj", "{DC86A2FD-6353-4DFF-A332-51546664A366}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisExampleWithCleanArchitecture.Infrastructure", "RedisExampleWithCleanArchitecture.Infrastructure\RedisExampleWithCleanArchitecture.Infrastructure.csproj", "{AFD239D5-0199-4F9C-927F-4785EE302AA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisExampleWithCleanArchitecture.Infrastructure", "RedisExampleWithCleanArchitecture.Infrastructure\RedisExampleWithCleanArchitecture.Infrastructure.csproj", "{AFD239D5-0199-4F9C-927F-4785EE302AA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisExampleWithCleanArchitecture.Persistence", "RedisExampleWithCleanArchitecture.Persistence\RedisExampleWithCleanArchitecture.Persistence.csproj", "{11BAB04E-B9C8-49B4-A14D-BCE21F5C355A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisExampleWithCleanArchitecture.Persistence", "RedisExampleWithCleanArchitecture.Persistence\RedisExampleWithCleanArchitecture.Persistence.csproj", "{11BAB04E-B9C8-49B4-A14D-BCE21F5C355A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisExampleWithCleanArchitecture.Application", "RedisExampleWithCleanArchitecture.Application\RedisExampleWithCleanArchitecture.Application.csproj", "{4150B306-57D6-4AB0-BF2A-B751E65EC80E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedisExampleWithCleanArchitecture.Application", "RedisExampleWithCleanArchitecture.Application\RedisExampleWithCleanArchitecture.Application.csproj", "{4150B306-57D6-4AB0-BF2A-B751E65EC80E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E2135310-2B5D-4DA5-8207-F44972988E0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D12C6A4F-0510-4624-A26D-C50D3E1869DB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{54DD8BCC-5C7C-46FA-B484-2169F195CF29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedisExampleWithCleanArchitecture.Tests", "RedisExampleWithCleanArchitecture.Tests\RedisExampleWithCleanArchitecture.Tests.csproj", "{5DBE2D0A-4DD4-4A8F-BCBF-3ECED1FA5FF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{ABA1B3AF-EE0D-44FC-BC12-6DBFC64DC35C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,9 +49,21 @@ Global
 		{4150B306-57D6-4AB0-BF2A-B751E65EC80E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4150B306-57D6-4AB0-BF2A-B751E65EC80E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4150B306-57D6-4AB0-BF2A-B751E65EC80E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DBE2D0A-4DD4-4A8F-BCBF-3ECED1FA5FF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DBE2D0A-4DD4-4A8F-BCBF-3ECED1FA5FF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DBE2D0A-4DD4-4A8F-BCBF-3ECED1FA5FF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DBE2D0A-4DD4-4A8F-BCBF-3ECED1FA5FF1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ED7E35C7-2BA6-4CCF-94C8-5EA4BE183345} = {54DD8BCC-5C7C-46FA-B484-2169F195CF29}
+		{DC86A2FD-6353-4DFF-A332-51546664A366} = {E2135310-2B5D-4DA5-8207-F44972988E0C}
+		{AFD239D5-0199-4F9C-927F-4785EE302AA8} = {D12C6A4F-0510-4624-A26D-C50D3E1869DB}
+		{11BAB04E-B9C8-49B4-A14D-BCE21F5C355A} = {D12C6A4F-0510-4624-A26D-C50D3E1869DB}
+		{4150B306-57D6-4AB0-BF2A-B751E65EC80E} = {E2135310-2B5D-4DA5-8207-F44972988E0C}
+		{5DBE2D0A-4DD4-4A8F-BCBF-3ECED1FA5FF1} = {ABA1B3AF-EE0D-44FC-BC12-6DBFC64DC35C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40890AC7-2950-489D-81E7-2550E00EA385}
