@@ -1,5 +1,5 @@
 ﻿using RedisExampleWithCleanArchitecture.Application.Specifications.Common;
-using RedisExampleWithCleanArchitecture.Domain.ProductEntities;
+using RedisExampleWithCleanArchitecture.Domain.Entities.ProductEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

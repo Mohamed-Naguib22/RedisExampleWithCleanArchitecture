@@ -4,7 +4,7 @@ using RedisExampleWithCleanArchitecture.Application.Contract.IPersistance.ICachi
 using RedisExampleWithCleanArchitecture.Application.Contract.IPersistance.IRepositories.ICommon;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.Create;
 using RedisExampleWithCleanArchitecture.Domain.Constants;
-using RedisExampleWithCleanArchitecture.Domain.ProductEntities;
+using RedisExampleWithCleanArchitecture.Domain.Entities.ProductEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

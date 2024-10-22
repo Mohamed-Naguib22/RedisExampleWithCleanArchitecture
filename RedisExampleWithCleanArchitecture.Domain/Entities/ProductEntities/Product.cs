@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RedisExampleWithCleanArchitecture.Domain.ProductEntities
+namespace RedisExampleWithCleanArchitecture.Domain.Entities.ProductEntities
 {
     public class Product : BaseEntity
     {

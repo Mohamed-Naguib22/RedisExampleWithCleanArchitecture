@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using RedisExampleWithCleanArchitecture.Application.Contract.IPersistance.IRepositories.ICommon;
-using RedisExampleWithCleanArchitecture.Domain.ProductEntities;
+using RedisExampleWithCleanArchitecture.Domain.Entities.ProductEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -4,7 +4,7 @@ using RedisExampleWithCleanArchitecture.Application.Contract.IPersistance.IRepos
 using RedisExampleWithCleanArchitecture.Application.Exceptions;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetAll;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetById;
-using RedisExampleWithCleanArchitecture.Domain.ProductEntities;
+using RedisExampleWithCleanArchitecture.Domain.Entities.ProductEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

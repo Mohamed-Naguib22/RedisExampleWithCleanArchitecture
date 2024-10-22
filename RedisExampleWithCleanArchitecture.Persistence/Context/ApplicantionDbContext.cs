@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RedisExampleWithCleanArchitecture.Domain.ProductEntities;
+using RedisExampleWithCleanArchitecture.Domain.Entities.ProductEntities;
+using RedisExampleWithCleanArchitecture.Persistence.Extensions.EntityConfigurations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace RedisExampleWithCleanArchitecture.Persistence.Context
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-
+            modelBuilder.ApplyConfiguration(new ProductConfiguration());
         }
 
         public DbSet<Product> Products { get; set; }
