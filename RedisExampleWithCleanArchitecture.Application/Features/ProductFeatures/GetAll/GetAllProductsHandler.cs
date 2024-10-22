@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
+using RedisExampleWithCleanArchitecture.Application.Contract.IPersistance.ICaching;
+using RedisExampleWithCleanArchitecture.Application.Contract.IPersistance.IRepositories.ICommon;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.Create;
-using RedisExampleWithCleanArchitecture.Application.IContract.IRepositories.ICommon;
+using RedisExampleWithCleanArchitecture.Domain.Constants;
 using RedisExampleWithCleanArchitecture.Domain.ProductEntities;
 using System;
 using System.Collections.Generic;
@@ -15,17 +17,31 @@ namespace RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
-        public GetAllProductsHandler(IMapper mapper, IUnitOfWork unitOfWork)
+        private readonly IRedisCacheService _redisCacheService;
+
+        public GetAllProductsHandler(IMapper mapper, IUnitOfWork unitOfWork, IRedisCacheService redisCacheService)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
+            _redisCacheService = redisCacheService;
         }
 
         public async Task<IEnumerable<GetProductDto>> Handle(GetAllProductsRequest request, CancellationToken cancellationToken)
         {
-            var specifications = new GetAllProductsSpecification();
+            var products = Enumerable.Empty<Product>();
+            var cahcedProducts = await _redisCacheService.GetDataAsync<IEnumerable<Product>>(Constants.PRODUCTS_CACHE_KEY);
 
-            var products = await _unitOfWork.GetRepository<Product>().FindAsync(specifications);
+            if (cahcedProducts is not null)
+            {
+                products = cahcedProducts;
+            }
+            else
+            {
+                var specifications = new GetAllProductsSpecification();
+                products = await _unitOfWork.GetRepository<Product>().FindAsync(specifications);
+
+                await _redisCacheService.SetDataAsync(Constants.PRODUCTS_CACHE_KEY, products);
+            }
 
             return _mapper.Map<IEnumerable<GetProductDto>>(products);
         }

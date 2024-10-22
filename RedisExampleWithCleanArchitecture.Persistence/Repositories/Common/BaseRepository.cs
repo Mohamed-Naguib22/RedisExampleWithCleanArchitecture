@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore.Query;
 using RedisExampleWithCleanArchitecture.Domain.Entities.Common;
 using RedisExampleWithCleanArchitecture.Persistence.Context;
-using RedisExampleWithCleanArchitecture.Application.IContract.IRepositories.ICommon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RedisExampleWithCleanArchitecture.Application.IContract.ICommon;
 using RedisExampleWithCleanArchitecture.Persistence.Services;
+using RedisExampleWithCleanArchitecture.Application.Contract.IPersistance.IRepositories.ICommon;
 
 namespace RedisExampleWithCleanArchitecture.Persistence.Repositories.Common
 {

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using RedisExampleWithCleanArchitecture.Application.IContract.IRepositories.ICommon;
+using RedisExampleWithCleanArchitecture.Application.Contract.IPersistance.IRepositories.ICommon;
 using RedisExampleWithCleanArchitecture.Domain.ProductEntities;
 using System;
 using System.Collections.Generic;
@@ -17,7 +17,7 @@ namespace RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures
 
         public async Task<Unit> Handle(CreateProductRequest request, CancellationToken cancellationToken)
         {
-            var product = _mapper.Map<Product>(request);
+            var product = _mapper.Map<Product>(request.CreateProductDto);
 
             await _unitOfWork.GetRepository<Product>().AddAsync(product);
 

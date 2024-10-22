@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RedisExampleWithCleanArchitecture.Application.IContract.IRepositories.ICommon
+namespace RedisExampleWithCleanArchitecture.Application.Contract.IPersistance.IRepositories.ICommon
 {
     public interface IUnitOfWork
     {

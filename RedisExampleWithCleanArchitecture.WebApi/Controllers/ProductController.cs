@@ -31,9 +31,9 @@ namespace RedisExampleWithCleanArchitecture.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreateProductRequest createProductRequest)
+        public async Task<IActionResult> Create([FromBody] CreateProductDto createProductDto)
         {
-            await _mediator.Send(createProductRequest);
+            await _mediator.Send(new CreateProductRequest(createProductDto));
 
             return Ok();
         }

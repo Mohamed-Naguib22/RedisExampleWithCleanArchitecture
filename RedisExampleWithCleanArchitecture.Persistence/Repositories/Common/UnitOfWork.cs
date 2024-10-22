@@ -1,4 +1,4 @@
-﻿using RedisExampleWithCleanArchitecture.Application.IContract.IRepositories.ICommon;
+﻿using RedisExampleWithCleanArchitecture.Application.Contract.IPersistance.IRepositories.ICommon;
 using RedisExampleWithCleanArchitecture.Domain.Entities.Common;
 using RedisExampleWithCleanArchitecture.Persistence.Context;
 using System;

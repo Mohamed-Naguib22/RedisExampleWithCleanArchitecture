@@ -11,7 +11,7 @@ namespace RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures
     {
         public CreateProductValidator()
         {
-            RuleFor(x => x.Price)
+            RuleFor(x => x.CreateProductDto.Price)
                 .NotEmpty()
                 .GreaterThanOrEqualTo(0);
         }

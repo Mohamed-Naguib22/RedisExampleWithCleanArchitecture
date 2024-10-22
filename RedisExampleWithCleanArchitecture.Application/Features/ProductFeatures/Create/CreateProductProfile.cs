@@ -12,7 +12,7 @@ namespace RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures
     {
         public CreateProductProfile()
         {
-            CreateMap<CreateProductRequest, Product>();
+            CreateMap<CreateProductDto, Product>();
         }
     }
 }

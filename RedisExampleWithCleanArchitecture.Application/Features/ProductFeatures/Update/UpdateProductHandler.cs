@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
+using RedisExampleWithCleanArchitecture.Application.Contract.IPersistance.IRepositories.ICommon;
 using RedisExampleWithCleanArchitecture.Application.Exceptions;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.Create;
 using RedisExampleWithCleanArchitecture.Application.Features.ProductFeatures.GetById;
-using RedisExampleWithCleanArchitecture.Application.IContract.IRepositories.ICommon;
 using RedisExampleWithCleanArchitecture.Domain.ProductEntities;
 using System;
 using System.Collections.Generic;

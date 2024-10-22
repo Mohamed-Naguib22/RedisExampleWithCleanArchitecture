@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RedisExampleWithCleanArchitecture.Application.IContract.IRepositories.ICommon
+namespace RedisExampleWithCleanArchitecture.Application.Contract.IPersistance.IRepositories.ICommon
 {
     public interface IBaseRepository<T> where T : BaseEntity
     {
